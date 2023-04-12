@@ -1,9 +1,22 @@
 import React from 'react'
 
-const Products = () => {
+const Products = (props) => {
+  
+    console.log(props.carResponse)
   return (
-    <div>Products</div>
-  )
-}
+    <div >
+      {props.carResponse.length
+        ? props.carResponse.map((car) => (
+            <div key={car._id }>
+              <p>{car._id}</p>
+            </div>
+          ))
+        : "Movie List is empty"}
 
-export default Products
+        
+    </div>
+  );
+};
+ 
+
+export default Products;
