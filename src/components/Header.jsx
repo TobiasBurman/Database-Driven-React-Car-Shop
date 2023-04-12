@@ -5,7 +5,7 @@ import Cart from './Cart'
 const Header = () => {
   return (
     <>
-    <header>Hello world</header>
+    
      <Nav />
      <Cart />
     </>
