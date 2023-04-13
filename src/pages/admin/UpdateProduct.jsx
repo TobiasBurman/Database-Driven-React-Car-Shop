@@ -9,13 +9,15 @@ const EditProduct = () => {
   const [category, setCategory] = useState('');
   const [image, setImage] = useState('');
 
+  let urlParams = new URLSearchParams(window.location.search)
+
   const { id } = useParams();
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `https://product-api-production-0e9a.up.railway.app/products/${id}`
+          `https://product-api-production-0e9a.up.railway.app/products/${urlParams.get('id')}`
         );
         if (!response.ok) {
           throw new Error('Could not fetch product data');
@@ -39,7 +41,7 @@ const EditProduct = () => {
 
     try {
       const response = await fetch(
-        `https://product-api-production-0e9a.up.railway.app/products/${id}`,
+        `https://product-api-production-0e9a.up.railway.app/products/${urlParams.get('id')}`,
         {
           method: 'PATCH',
           headers: {
