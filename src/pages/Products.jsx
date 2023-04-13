@@ -8,7 +8,13 @@ const Products = (props) => {
       {props.carResponse.length
         ? props.carResponse.map((car) => (
             <div key={car._id }>
-              <p>{car._id}</p>
+              <p>{car.title}</p>
+              <p>{car.description}</p>
+              <p>{car.price}</p>
+              <p>{car.date}</p>
+              <p>{car.category}</p>
+              <p>{car.image}</p>
+              <br />
             </div>
           ))
         : "Movie List is empty"}
