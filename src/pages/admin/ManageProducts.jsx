@@ -74,11 +74,13 @@ const ManageProducts = () => {
                 <td>{product.category}</td>
                 <td>{product.image}</td>
                 <td>
-                  <button>Update</button>
+                <button onClick={() => window.location.href=`/pages/admin/UpdateProduct?id=${product._id}`}>
+                    Uppdatera
+                  </button>
                 </td>
                 <td>
                   <button onClick={() => handleDelete(product._id)}>
-                    Delete
+                    Radera
                   </button>
                 </td>
               </tr>
