@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../../components/Nav";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
@@ -27,8 +27,7 @@ const ManageProducts = () => {
     <>
       <Nav />
 
-      <Link
-        to="/pages/admin/CreateProduct">Create Product</Link>
+      <Link to="/pages/admin/CreateProduct">Create Product</Link>
       {error && <p>{error}</p>}
       {products.length > 0 ? (
         <table>

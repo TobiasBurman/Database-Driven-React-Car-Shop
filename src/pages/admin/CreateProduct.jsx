@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 
 const CreateProduct = () => {
   const [title, setTitle] = useState("");
@@ -43,6 +44,7 @@ const CreateProduct = () => {
 
   return (
     <>
+    <Link to="/pages/admin/ManageProducts">Admin</Link>
       <h1>Create Product</h1>
       <form onSubmit={handleSubmit}>
         <label>
