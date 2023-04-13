@@ -23,6 +23,25 @@ const ManageProducts = () => {
     fetchProducts();
   }, []);
 
+  const handleDelete = async (productId) => {
+    try {
+      const response = await fetch(
+        `https://product-api-production-0e9a.up.railway.app/products/${productId}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.ok) {
+        setProducts((prevProducts) =>
+          prevProducts.filter((product) => product._id !== productId)
+        );
+      }
+    } catch (error) {
+      console.error(error);
+      setError("An error occurred while deleting the product");
+    }
+  };
+
   return (
     <>
       <Nav />
@@ -40,6 +59,8 @@ const ManageProducts = () => {
               <td>Datum</td>
               <td>Kategori</td>
               <td>Bild</td>
+              <td></td>
+              <td></td>
             </tr>
           </thead>
           <tbody>
@@ -52,6 +73,14 @@ const ManageProducts = () => {
                 <td>{product.date}</td>
                 <td>{product.category}</td>
                 <td>{product.image}</td>
+                <td>
+                  <button>Update</button>
+                </td>
+                <td>
+                  <button onClick={() => handleDelete(product._id)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
