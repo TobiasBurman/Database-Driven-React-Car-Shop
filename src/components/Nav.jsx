@@ -7,7 +7,6 @@ const Nav = () => {
            <Link to="pages/admin/ManageProducts">Admin</Link>
            <br />
            <Link to="/">Home</Link>
-
     </>
   )
 }
