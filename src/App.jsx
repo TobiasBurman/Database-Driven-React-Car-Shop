@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Cart from './components/Cart';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([	]);
   const [error, setError] = useState('');
   const [carResponse, setCarResponse] = useState("")
   const getCars = async () => {
@@ -38,9 +38,9 @@ const handleBuy = (car) => {
 console.log(cartItems)
   return (
     <div className="App">
-      <Header />
+      <Header cartItems={cartItems}/>
       <Products carResponse = {carResponse} handleBuy = {handleBuy}/>
-      <Cart cartItems={cartItems} />
+     
       <Footer />
     </div>
   )
