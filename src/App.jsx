@@ -4,9 +4,10 @@ import Header from './components/Header'
 import { useState, useEffect } from 'react'
 import Products from './pages/Products';
 import Footer from './components/Footer';
+import Cart from './components/Cart';
 
 function App() {
-  const [cars, setCars] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState('');
   const [carResponse, setCarResponse] = useState("")
   const getCars = async () => {
@@ -31,13 +32,15 @@ useEffect(() => {
   getCars();
 }, []);
 
-
-
+const handleBuy = (car) => {
+  setCartItems([...cartItems, car]);
+}
+console.log(cartItems)
   return (
     <div className="App">
       <Header />
-      <Products carResponse = {carResponse}/>
-        
+      <Products carResponse = {carResponse} handleBuy = {handleBuy}/>
+      <Cart cartItems={cartItems} />
       <Footer />
     </div>
   )

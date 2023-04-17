@@ -8,6 +8,7 @@ const Header = () => {
     
      <Nav />
      <Cart />
+
     </>
   )
 }

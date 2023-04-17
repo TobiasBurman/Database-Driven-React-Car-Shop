@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Product from '../components/Product';
 const Products = (props) => {
-  
+ 
     console.log(props.carResponse)
   return (
     <div >
@@ -14,6 +14,7 @@ const Products = (props) => {
               <button onClick={() => window.location.href=`/pages/ProductPage?id=${car._id}`}>
                     Product
               </button>
+              <button onClick={() => props.handleBuy(car)}>Köp</button>
               </div>
           ))
         : "Movie List is empty"}
