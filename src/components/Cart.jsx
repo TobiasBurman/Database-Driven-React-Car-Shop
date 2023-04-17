@@ -1,9 +1,26 @@
-import React from 'react'
+import React from "react";
 
-const Cart = () => {
+
+
+const Cart = ({cartItems}) => {
+  
+  
   return (
-    <div>Cart</div>
-  )
-}
+    <>
+      <h2>Cart</h2>
+      <ul>
 
-export default Cart
+        {cartItems.cartItems.length ?
+        cartItems.cartItems.map((car) => (
+          <li key={car._id}>
+            {car.title} - {car.price} 
+          </li>
+        ))
+        : <p>Error</p>
+      }
+      </ul>
+    </>
+  );
+};
+
+export default Cart;

@@ -16,6 +16,7 @@ import CreateProduct from './pages/admin/CreateProduct';
 import UpdateProduct from './pages/admin/UpdateProduct';
 import Product from './components/Product';
 import ProductPage from './pages/ProductPage';
+import Cart from './components/Cart';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,7 +49,11 @@ const router = createBrowserRouter([
       {
         path: "/pages/ProductPage",
         element: <ProductPage />
-      }
+      },
+      {
+        path: "/components/Cart",
+        element: <Cart />
+      },
     ]
   },
  
