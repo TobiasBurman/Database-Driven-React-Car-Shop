@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Product from '../components/Product';
 const Products = (props) => {
   
     console.log(props.carResponse)
@@ -8,12 +9,7 @@ const Products = (props) => {
       {props.carResponse.length
         ? props.carResponse.map((car) => (
             <div key={car._id }>
-              <p>{car.title}</p>
-              <p>{car.description}</p>
-              <p>{car.price}</p>
-              <p>{car.date}</p>
-              <p>{car.category}</p>
-              <p><img src={car.image} alt="car" width="350" height="250" /></p>
+              <Product car = {car}/>
               <br />
               <button onClick={() => window.location.href=`/pages/ProductPage?id=${car._id}`}>
                     Product
