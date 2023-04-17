@@ -13,7 +13,7 @@ const Products = (props) => {
               <p>{car.price}</p>
               <p>{car.date}</p>
               <p>{car.category}</p>
-              <p>{car.image}</p>
+              <p><img src={car.image} alt="car" width="350" height="250" /></p>
               <br />
             </div>
           ))

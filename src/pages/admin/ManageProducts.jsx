@@ -72,7 +72,7 @@ const ManageProducts = () => {
                 <td>{product.stock}</td>
                 <td>{product.date}</td>
                 <td>{product.category}</td>
-                <td>{product.image}</td>
+                <td><img src={product.image} width ="350" height ="250" /></td>
                 <td>
                 <button onClick={() => window.location.href=`/pages/admin/UpdateProduct?id=${product._id}`}>
                     Uppdatera
