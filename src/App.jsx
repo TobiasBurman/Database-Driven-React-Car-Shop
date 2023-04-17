@@ -4,12 +4,13 @@ import Header from './components/Header'
 import { useState, useEffect } from 'react'
 import Products from './pages/Products';
 import Footer from './components/Footer';
-import Cart from './components/Cart';
 
 function App() {
   const [cartItems, setCartItems] = useState([	]);
   const [error, setError] = useState('');
   const [carResponse, setCarResponse] = useState("")
+  const [showCart, setShowCart] = useState(false);
+
   const getCars = async () => {
   try {
 
@@ -36,11 +37,16 @@ const handleBuy = (car) => {
   setCartItems([...cartItems, car]);
 }
 console.log(cartItems)
+
+const handleShowCart = () => {
+  setShowCart(!showCart);
+}
+
   return (
     <div className="App">
-      <Header cartItems={cartItems}/>
+      <Header onCartClick={handleShowCart} cartItems={cartItems}/>
       <Products carResponse = {carResponse} handleBuy = {handleBuy}/>
-     
+      {showCart && <Cart cartItems={cartItems} />}
       <Footer />
     </div>
   )
