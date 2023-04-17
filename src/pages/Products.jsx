@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 const Products = (props) => {
   
     console.log(props.carResponse)
@@ -15,10 +15,13 @@ const Products = (props) => {
               <p>{car.category}</p>
               <p><img src={car.image} alt="car" width="350" height="250" /></p>
               <br />
-            </div>
+              <button onClick={() => window.location.href=`/pages/ProductPage?id=${car._id}`}>
+                    Product
+              </button>
+              </div>
           ))
         : "Movie List is empty"}
-
+      
         
     </div>
   );

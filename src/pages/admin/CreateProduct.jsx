@@ -73,7 +73,7 @@ const CreateProduct = () => {
         </label>
         <br />
         <label>
-          Image:
+          Image URL:
           <input type="text" value={image} onChange={(e) => setImage(e.target.value)} />
         </label>
         <br />

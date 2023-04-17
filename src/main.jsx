@@ -14,7 +14,8 @@ import Root from './pages/admin/Root';
 import Products from './pages/Products';
 import CreateProduct from './pages/admin/CreateProduct';
 import UpdateProduct from './pages/admin/UpdateProduct';
-
+import Product from './components/Product';
+import ProductPage from './pages/ProductPage';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +40,14 @@ const router = createBrowserRouter([
       }, {
         path: "/pages/admin/UpdateProduct",
         element: <UpdateProduct />,
+      },
+      {
+        path: "/components/Product",
+        element: <Product />,
+      },
+      {
+        path: "/pages/ProductPage",
+        element: <ProductPage />
       }
     ]
   },
