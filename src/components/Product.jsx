@@ -1,39 +1,20 @@
 import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
 
-const Product = () => {
+const Product = (props) => {
 
-  const [carResponse, setCarResponse] = useState("")
-  let urlParams = new URLSearchParams(window.location.search)
-
-  const getCars = async () => {
-    try {
-  
-      const response =  await fetch(
-        `https://product-api-production-0e9a.up.railway.app/products/${urlParams.get('id')}`
-      );
-     const carApi= await response.json();
-     
-      setCarResponse(carApi)
-      
-    } catch (error) {
-      console.log(error);
-      setError("An error occurred while fetching the data");
-    }
-  };
-  
-  
-  
-  useEffect(() => {
-    getCars();
-  }, []);
+let car = props.car
   
 
 
   return (
-    <div>Productsdsdsada</div>
+    <div>
+      <p>{car.title}</p>
+              <p>{car.description}</p>
+              <p>{car.price}</p>
+              <p>{car.date}</p>
+              <p>{car.category}</p>
+              <p><img src={car.image} alt="car" width="350" height="250" /></p>
+    </div>
   )
 }
 
