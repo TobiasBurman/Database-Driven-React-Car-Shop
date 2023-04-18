@@ -1,10 +1,10 @@
 import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'
+import { useOutletContext } from "react-router-dom";
 import { Link, useParams } from 'react-router-dom';
 
 const ProductPage = () => {
-
+  const [cartItems, setCartItems] = useOutletContext();
   const [carResponse, setCarResponse] = useState("")
   let urlParams = new URLSearchParams(window.location.search)
 
@@ -30,7 +30,9 @@ const ProductPage = () => {
     getCars();
   }, []);
   
-
+  const handleBuy = (car) => {
+    setCartItems([...cartItems, car]);
+  }
 
   return (
     <div>Productsdsdsada
@@ -43,12 +45,7 @@ const ProductPage = () => {
               <p>{carResponse.category}</p>
               <p><img src={carResponse.image} alt="carResponse" width="350" height="250" /></p>
               <br />
-              <button onClick={() => window.location.href=`/`}>
-                    Hem
-              </button>
-              <button onClick={() => window.location.href=`/pages/admin/ManageProducts`}>
-                    Admin
-              </button>
+              <button onClick={() => handleBuy(carResponse)}>Köp</button>
               </div>
 
 

@@ -44,8 +44,6 @@ const ManageProducts = () => {
 
   return (
     <>
-      <Nav />
-
       <Link to="/pages/admin/CreateProduct">Create Product</Link>
       {error && <p>{error}</p>}
       {products.length > 0 ? (
