@@ -33,10 +33,10 @@ const handleShowCart = () => {
       
    
       {showCart && <Cart cartItems={cartItems} />}
-      <Footer />
         <section>
             <Outlet context={[cartItems, setCartItems]}/>
         </section>
+        <Footer />
     </div>
   )
 }

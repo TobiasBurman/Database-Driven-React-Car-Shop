@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Nav.module.css';
 import { useOutletContext } from "react-router-dom";
 
-const Nav = ({ onCartClick }) => {
-
-
-  const cartItemCount = 0;
-
-
+const Nav = ({ onCartClick, cartItems }) => {
 
   return (
     <div className={styles.nav}>
@@ -16,7 +11,7 @@ const Nav = ({ onCartClick }) => {
       <br />
       <Link to="/pages/Products">Home</Link>
       <br />
-      <div onClick={onCartClick}>Cart({cartItemCount})</div>
+      <div onClick={onCartClick}>Cart({cartItems.length})</div>
     </div>
   );
 };
