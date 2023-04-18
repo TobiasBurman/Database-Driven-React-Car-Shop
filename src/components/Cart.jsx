@@ -12,21 +12,25 @@ const Cart = ({ cartItems }) => {
     return acc;
   }, {});
 
+  const totalAmount = Object.values(groupedItems).reduce((acc, item)=> acc+item.price * item.count,0);
+
   return (
     <>
-      <h2>Cart ({cartItemCount})</h2>
       <ul className={styles.cartContainer}>
         {cartItemCount > 0 ? (
           Object.values(groupedItems).map((item) => (
-            <li className={styles.cartList} key={item._id}>
-              {item.title} {item.price} - ({item.count})
-            </li>
-          ))
-        ) : (
-          <p>Your cart is empty</p>
-        )}
+            
+              <li className={styles.cartList} key={item._id}>
+                <img src={item.image} alt="car" width="150" height="100" /> {item.title} {item.price} - ({item.count})
+              </li>
+           
+           ))
+           ) : (
+             <p>Your cart is empty</p>
+             )}
+             <p className={styles.cartTotal}>Total: {totalAmount}SEK</p>
       </ul>
-    </>
+    </> 
   );
 };
 export default Cart;

@@ -11,7 +11,7 @@ const Header = ({ cartItems, onCartClick }) => {
 
   return (
     <>
-      <Nav onCartClick={handleCartClick} />
+      <Nav cartItems={cartItems} onCartClick={handleCartClick} />
       {showCart && <Cart cartItems={cartItems} />}
     </>
   );
