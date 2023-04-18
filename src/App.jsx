@@ -4,9 +4,11 @@ import Header from './components/Header'
 import { useState, useEffect } from 'react'
 import Products from './pages/Products';
 import Footer from './components/Footer';
+import Nav from './components/Nav';
+import Cart from './components/Cart'
 
 function App() {
-  const [cartItems, setCartItems] = useState([	]);
+  const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState('');
   const [carResponse, setCarResponse] = useState("")
   const [showCart, setShowCart] = useState(false);
@@ -46,6 +48,7 @@ const handleShowCart = () => {
     <div className="App">
       <Header onCartClick={handleShowCart} cartItems={cartItems}/>
       <Products carResponse = {carResponse} handleBuy = {handleBuy}/>
+      <Nav cartItems={cartItems} />
       {showCart && <Cart cartItems={cartItems} />}
       <Footer />
     </div>
