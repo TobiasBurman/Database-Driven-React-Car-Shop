@@ -1,6 +1,7 @@
 .cartContainer{
-    position: relative;
-    
+    position: absolute;
+    overflow:inherit;
+    max-height: 300px;
 }
 
 .cartList{
