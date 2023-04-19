@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import { useOutletContext } from "react-router-dom";
 import Product from '../components/Product';
-const Products = (props) => {
+const Products = () => {
 
   const [cartItems, setCartItems] = useOutletContext();
   const [carResponse, setCarResponse] = useState("")
+  const [error, setError] = useState('');
 
   const getCars = async () => {
     try {
@@ -24,8 +25,6 @@ const Products = (props) => {
     }
   };
   
-  
-  
   useEffect(() => {
     getCars();
   }, []);
@@ -37,10 +36,10 @@ const Products = (props) => {
  
    
   return (
-    <div >
+    <div className='product-container'>
       {carResponse.length
         ? carResponse.map((car) => (
-            <div key={car._id }>
+            <div className ="product"key={car._id }>
               <Product car = {car}/>
               <br />
               <Link to={`/pages/ProductPage?id=${car._id}`}>Product</Link>
@@ -49,8 +48,6 @@ const Products = (props) => {
               </div>
           ))
         : "Movie List is empty"}
-      
-        
     </div>
   );
 };
