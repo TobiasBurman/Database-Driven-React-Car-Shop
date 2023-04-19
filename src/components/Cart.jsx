@@ -1,5 +1,7 @@
 import React from "react";
 import styles from './Cart.module.css'
+import { Link } from 'react-router-dom';
+
 
 const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
   const cartItemCount = cartItems.length;
@@ -34,6 +36,7 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
              <p className={styles.cartTotal}>Total: {totalAmount}SEK </p>
                 <span>
                   <button className={styles.cartTotal} onClick={() => handleRemoveAll()}>Remove All</button>
+                  <Link to="/pages/Checkout">Checkout</Link>
                 </span>
       </ul>
     </> 
