@@ -11,7 +11,7 @@ const Nav = ({ onCartClick, cartItems }) => {
       <br />
       <Link to="/pages/Products">Home</Link>
       <br />
-      <div onClick={onCartClick}>Cart({cartItems.length})</div>
+      <div className={styles.pointer} onClick={onCartClick}>Cart({cartItems.length})</div>
     </div>
   );
 };
