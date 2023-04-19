@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Nav from './Nav';
 import Cart from './Cart';
 
-const Header = ({ cartItems, onCartClick }) => {
+const Header = ({ cartItems, handleRemoveItem }) => {
   const [showCart, setShowCart] = useState(false);
   
   const handleCartClick = () => {
@@ -12,7 +12,7 @@ const Header = ({ cartItems, onCartClick }) => {
   return (
     <>
       <Nav cartItems={cartItems} onCartClick={handleCartClick} />
-      {showCart && <Cart cartItems={cartItems} />}
+      {showCart && <Cart cartItems={cartItems} handleRemoveItem={handleRemoveItem} />}
     </>
   );
 };
