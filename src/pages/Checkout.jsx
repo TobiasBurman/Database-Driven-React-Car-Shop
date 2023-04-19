@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { useOutletContext } from 'react-router-dom';
-import Product from '../components/Product';
+
 
 const Checkout = () => {
   const [cartItems] = useOutletContext();
-  const [carResponse, setCarResponse] = useState([]);
-  const [formItems, setFormItems] = useState([]);
-
-
-
-
-
-
 
   return (
     <div>
@@ -29,9 +20,6 @@ const Checkout = () => {
               <br />
             </div>
         ))}
- 
-     
-        <button type="submit">Submit</button>
       </form>
     </div>
   );
