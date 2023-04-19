@@ -1,6 +1,8 @@
 import React from "react";
 import styles from './Cart.module.css'
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion"
+
 
 
 const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
