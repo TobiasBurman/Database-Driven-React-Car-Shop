@@ -36,7 +36,7 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
              <p className={styles.cartTotal}>Total: {totalAmount}SEK </p>
                 <span>
                   <button className={styles.cartTotal} onClick={() => handleRemoveAll()}>Remove All</button>
-                  <Link to="/pages/Checkout">Checkout</Link>
+                  <Link className={styles.cartList} to="/pages/Checkout">Checkout</Link>
                 </span>
       </ul>
     </> 
