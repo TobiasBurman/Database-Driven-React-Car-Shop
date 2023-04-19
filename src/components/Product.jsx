@@ -8,12 +8,12 @@ let car = props.car
 
   return (
     <div>
-      <p>{car.title}</p>
-              <p>{car.description}</p>
-              <p>{car.price}</p>
+      <h3>{car.title}</h3>
+              <h5>Beskrivning: {car.description}</h5>
+              <h5>{car.price}</h5>
               <p>{car.date}</p>
               <p>{car.category}</p>
-              <p><img src={car.image} alt="car" width="350" height="250" /></p>
+              <p><img className='product-img' src={car.image} alt="car" width="350" height="250" /></p>
     </div>
   )
 }
