@@ -47,7 +47,7 @@ const ManageProducts = () => {
       <Link to="/pages/admin/CreateProduct">Create Product</Link>
       {error && <p>{error}</p>}
       {products.length > 0 ? (
-        <table>
+        <table className="adminTable">
           <thead>
             <tr>
               <td>Titel</td>
@@ -70,7 +70,7 @@ const ManageProducts = () => {
                 <td>{product.stock}</td>
                 <td>{product.date}</td>
                 <td>{product.category}</td>
-                <td><img src={product.image} width ="350" height ="250" /></td>
+                <td><img src={product.image} width ="120" height ="80" /></td>
                 <td>
                 <button onClick={() => window.location.href=`/pages/admin/UpdateProduct?id=${product._id}`}>
                     Uppdatera

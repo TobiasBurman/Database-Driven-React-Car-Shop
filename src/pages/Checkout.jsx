@@ -7,20 +7,43 @@ const Checkout = () => {
 
   return (
     <div>
-      <form >
+      <form className='checkOut'>
         {cartItems.map((item) => (
           
           <div key={item._id}>
-              <p>{item.title}</p>
-              <p>{item.description}</p>
-              <p>{item.price}</p>
-              <p>{item.date}</p>
-              <p>{item.category}</p>
-              <p><img src={item.image} alt="car" width="200" height="120" /></p>
-              <br />
+              <p><img src={item.image} alt="car" width="100" height="60" />  {item.title} - {item.price}</p>
+  
             </div>
         ))}
       </form>
+      <form className='checkOutForm'>
+      <label>
+        Name:
+        <input type="text"  />
+      </label>
+      <br />
+      <label>
+        Address:
+        <input type="text" />
+      </label>
+      <br />
+      <label>
+        City:
+        <input type="text"  />
+      </label>
+      <br />
+      <label>
+        State:
+        <input type="text"  />
+      </label>
+      <br />
+      <label>
+        Zip:
+        <input type="text" />
+      </label>
+      <br />
+      <button>Submit</button>
+    </form>
     </div>
   );
 };
