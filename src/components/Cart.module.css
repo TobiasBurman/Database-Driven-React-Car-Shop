@@ -7,7 +7,7 @@
 .cartList{
     position: relative;
     top: 100%;
-    left: 100%;
+    left: 500px;
     background-color: white;
     color: black;
     border: 1px solid black;
@@ -20,7 +20,7 @@
 .cartTotal{
     position: relative;
     top: 100%;
-    left: 100%;
+    left: 500px;
     background-color: white;
     color: black;
     border: 1px solid black;

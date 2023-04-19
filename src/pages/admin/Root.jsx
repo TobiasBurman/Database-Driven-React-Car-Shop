@@ -16,7 +16,10 @@ const Root = () => {
 
   const [showCart, setShowCart] = useState(false);
 
-  
+  const handleRemoveItem = (id) => {
+    const newCartItems = cartItems.filter(item => item._id !== id);
+    setCartItems(newCartItems);
+  };
 
 
 console.log(cartItems)
@@ -29,10 +32,10 @@ const handleShowCart = () => {
   return (
     <div>
       
-      <Header onCartClick={handleShowCart} cartItems={cartItems}/>
+      <Header onCartClick={handleShowCart} cartItems={cartItems} handleRemoveItem={handleRemoveItem}/>
       
    
-      {showCart && <Cart cartItems={cartItems} />}
+      {showCart && <Cart onRemoveItem={handleRemoveItem} cartItems={cartItems} />}
         <section>
             <Outlet context={[cartItems, setCartItems]}/>
         </section>
