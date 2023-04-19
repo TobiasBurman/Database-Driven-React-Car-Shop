@@ -39,10 +39,10 @@ const Products = () => {
     <div className='product-container'>
       {carResponse.length
         ? carResponse.map((car) => (
-            <div className ="product"key={car._id }>
+          <div className ="product"key={car._id }>
               <Product car = {car}/>
               <br />
-              <Link to={`/pages/ProductPage?id=${car._id}`}>Product</Link>
+              {/* <Link to={`/pages/ProductPage?id=${car._id}`}><button className='product-btn'>Product</button></Link> */}
              
               <button onClick={() => handleBuy(car)}>Köp</button>
               </div>

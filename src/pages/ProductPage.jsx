@@ -34,12 +34,12 @@ const ProductPage = () => {
     <div>Productsdsdsada
 
 <div key={carResponse._id }>
+              <p><img src={carResponse.image} alt="carResponse" width="350" height="250" /></p>
               <p>{carResponse.title}</p>
               <p>{carResponse.description}</p>
               <p>{carResponse.price}</p>
               <p>{carResponse.date}</p>
               <p>{carResponse.category}</p>
-              <p><img src={carResponse.image} alt="carResponse" width="350" height="250" /></p>
               <br />
               <button onClick={() => handleBuy(carResponse)}>Köp</button>
               </div>
