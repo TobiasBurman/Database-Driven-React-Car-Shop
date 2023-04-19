@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Cart.module.css'
 
-const Cart = ({ cartItems, handleRemoveItem }) => {
+const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
   const cartItemCount = cartItems.length;
   const groupedItems = cartItems.reduce((acc, item) => {
     if (acc[item._id]) {
@@ -31,7 +31,10 @@ const Cart = ({ cartItems, handleRemoveItem }) => {
            ) : (
              <p className={styles.cartList}>Your cart is empty</p>
              )}
-             <p className={styles.cartTotal}>Total: {totalAmount}SEK</p>
+             <p className={styles.cartTotal}>Total: {totalAmount}SEK </p>
+                <span>
+                  <button className={styles.cartTotal} onClick={() => handleRemoveAll()}>Remove All</button>
+                </span>
       </ul>
     </> 
   );

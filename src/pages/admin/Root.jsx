@@ -21,6 +21,10 @@ const Root = () => {
     setCartItems(newCartItems);
   };
 
+  const handleRemoveAll = () => {
+    setCartItems([]);
+  };
+
 
 console.log(cartItems)
 
@@ -32,10 +36,10 @@ const handleShowCart = () => {
   return (
     <div>
       
-      <Header onCartClick={handleShowCart} cartItems={cartItems} handleRemoveItem={handleRemoveItem}/>
+      <Header onCartClick={handleShowCart} cartItems={cartItems} handleRemoveItem={handleRemoveItem} handleRemoveAll={handleRemoveAll}/>
       
    
-      {showCart && <Cart onRemoveItem={handleRemoveItem} cartItems={cartItems} />}
+      {showCart && <Cart onRemoveItem={handleRemoveItem} cartItems={cartItems} handleRemoveAll={handleRemoveAll}/>}
         <section>
             <Outlet context={[cartItems, setCartItems]}/>
         </section>
