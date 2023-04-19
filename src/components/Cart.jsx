@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Cart.module.css'
 import { Link } from 'react-router-dom';
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 
 
@@ -30,17 +30,18 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
     <>
       <motion.ul className={styles.cartContainer}
         animate={{
-          y: 100,
+          y: 10,
         }}
+        variants={variants}
         
       >
         {cartItemCount > 0 ? (
           Object.values(groupedItems).map((item) => (
             
-              <li className={styles.cartList} key={item._id}>
+              <motion.li className={styles.cartList} key={item._id} animate={{y: 10}}>
                 <img src={item.image} alt="car" width="150" height="100" /> {item.title} {item.price} - ({item.count})
                 <button onClick={() => handleRemoveItem(item._id)}>Remove</button>
-              </li>
+              </motion.li>
            
            ))
            ) : (
