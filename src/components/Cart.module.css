@@ -2,6 +2,7 @@
     position: absolute;
     overflow:inherit;
     max-height: 300px;
+    left: 300px;
 }
 
 .cartList{
