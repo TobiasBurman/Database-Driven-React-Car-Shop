@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Nav from './Nav';
 import Cart from './Cart';
+import styles from './Header.module.css'
 
 const Header = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
   const [showCart, setShowCart] = useState(false);
@@ -11,8 +12,10 @@ const Header = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
 
   return (
     <>
+    <header className={styles.header}>
       <Nav cartItems={cartItems} onCartClick={handleCartClick} />
       {showCart && <Cart cartItems={cartItems} handleRemoveItem={handleRemoveItem} handleRemoveAll={handleRemoveAll} />}
+      </header>
     </>
   );
 };

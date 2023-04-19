@@ -4,16 +4,12 @@ import { useState, useEffect } from 'react'
 
 import { Outlet } from 'react-router-dom'
 import Header from '../../components/Header';
-import Products from '../Products';
-import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 
 
 
 const Root = () => {
   const [cartItems, setCartItems] = useState([]);
-  const [error, setError] = useState('');
-
   const [showCart, setShowCart] = useState(false);
 
   const handleRemoveItem = (id) => {

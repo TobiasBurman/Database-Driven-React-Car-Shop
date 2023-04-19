@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import { useOutletContext } from "react-router-dom";
 import Product from '../components/Product';
-const Products = (props) => {
+const Products = () => {
 
   const [cartItems, setCartItems] = useOutletContext();
   const [carResponse, setCarResponse] = useState("")
+  const [error, setError] = useState('');
 
   const getCars = async () => {
     try {
@@ -23,8 +24,6 @@ const Products = (props) => {
       setError("An error occurred while fetching the data");
     }
   };
-  
-  
   
   useEffect(() => {
     getCars();
@@ -49,8 +48,6 @@ const Products = (props) => {
               </div>
           ))
         : "Movie List is empty"}
-      
-        
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useOutletContext } from "react-router-dom";
-import { Link, useParams } from 'react-router-dom';
 
 const ProductPage = () => {
   const [cartItems, setCartItems] = useOutletContext();
@@ -10,7 +9,6 @@ const ProductPage = () => {
 
   const getCars = async () => {
     try {
-  
       const response =  await fetch(
         `https://product-api-production-0e9a.up.railway.app/products/${urlParams.get('id')}`
       );
@@ -23,8 +21,6 @@ const ProductPage = () => {
       setError("An error occurred while fetching the data");
     }
   };
-  
-  
   
   useEffect(() => {
     getCars();
@@ -47,8 +43,6 @@ const ProductPage = () => {
               <br />
               <button onClick={() => handleBuy(carResponse)}>Köp</button>
               </div>
-
-
     </div>
   )
 }
