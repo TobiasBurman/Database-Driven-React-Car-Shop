@@ -17,8 +17,16 @@ const Root = () => {
   const [showCart, setShowCart] = useState(false);
 
   const handleRemoveItem = (id) => {
-    const newCartItems = cartItems.filter(item => item._id !== id);
-    setCartItems(newCartItems);
+    const index = cartItems.findIndex(item => item._id === id);
+    if (index !== -1) {
+      const updatedCartItems = [...cartItems];
+      if (updatedCartItems[index].quantity > 1) {
+        updatedCartItems[index].quantity--;
+      } else {
+        updatedCartItems.splice(index, 1);
+      }
+      setCartItems(updatedCartItems);
+    }
   };
 
   const handleRemoveAll = () => {
