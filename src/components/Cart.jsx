@@ -19,10 +19,21 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
 
   const totalAmount = Object.values(groupedItems).reduce((acc, item)=> acc+item.price * item.count,0);
 
+  const variants = {
+    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0, x: "-100%" },
+  }
+  
+  
 
   return (
     <>
-      <ul className={styles.cartContainer}>
+      <motion.ul className={styles.cartContainer}
+        animate={{
+          y: 100,
+        }}
+        
+      >
         {cartItemCount > 0 ? (
           Object.values(groupedItems).map((item) => (
             
@@ -40,7 +51,7 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
                   <button className={styles.cartTotal} onClick={() => handleRemoveAll()}>Remove All</button>
                   <Link className={styles.cartList} to="/pages/Checkout">Checkout</Link>
                 </span>
-      </ul>
+      </motion.ul>
     </> 
   );
 };
