@@ -77,7 +77,7 @@ const ManageProducts = () => {
                   </button>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(product._id)}>
+                  <button className="btn-delete" onClick={() => handleDelete(product._id)}>
                     Radera
                   </button>
                 </td>
