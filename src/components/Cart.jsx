@@ -48,10 +48,10 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
              <p className={styles.cartList}>Your cart is empty</p>
              )}
              <p className={styles.cartTotal}>Total: {totalAmount}SEK </p>
-                <span>
+                
                   <button className={styles.cartTotal} onClick={() => handleRemoveAll()}>Remove All</button>
                   <Link className={styles.cartList} to="/pages/Checkout">Checkout</Link>
-                </span>
+                
       </motion.ul>
     </> 
   );
