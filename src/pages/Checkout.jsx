@@ -29,13 +29,23 @@ const Checkout = () => {
     }
   };
 
+  // group identical items and display the total quantity of each item
+  const groupedItems = cartItems.reduce((acc, item) => {
+    if (acc[item._id]) {
+      acc[item._id].quantity++;
+    } else {
+      acc[item._id] = { ...item, quantity: 1 };
+    }
+    return acc;
+  }, {});
+
   return (
     <div>
       <form className='checkOut'>
-        {cartItems.map((item) => (
+        {Object.values(groupedItems).map((item) => (
           <div key={item._id}>
             <p>
-              <img src={item.image} alt="car" width="100" height="60" />  {item.title} - {item.price}
+              <img src={item.image} alt="car" width="100" height="60" />  {item.title} - {item.price} - ({item.quantity})
             </p>
             <button onClick={(e) => handleQuantityChange(item._id, 'decrease',e)}>-</button>
             <input type="text" value={item.quantity} onChange={() => {}} />
@@ -72,7 +82,7 @@ const Checkout = () => {
         <button>Submit</button>
       </form>
       <div>
-        <p>Total: {cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)}</p>
+        <p>Total: {Object.values(groupedItems).reduce((total, item) => total + (item.price * item.quantity), 0)}</p>
       </div>
     </div>
   );
