@@ -10,8 +10,9 @@ const Checkout = () => {
   
 
   const handleQuantityChange = (id, action) => {
+    
     const index = cartItems.findIndex(item => item._id === id);
-    console.log(item._id)
+    console.log("hello world")
     if (index !== -1) {
       const updatedCartItems = [...cartItems];
       if (action === 'increase') {
@@ -24,6 +25,7 @@ const Checkout = () => {
         }
       }
       setCartItems(updatedCartItems);
+
     }
   };
 
@@ -35,8 +37,8 @@ const Checkout = () => {
             <p>
               <img src={item.image} alt="car" width="100" height="60" />  {item.title} - {item.price}
             </p>
-            <button onClick={() => handleQuantityChange(item._id, 'increase')}>Increase quantity</button>
-            <button onClick={() => handleQuantityChange(item._id, 'decrease')}>Decrease quantity</button>
+            <b  onClick={() => handleQuantityChange(item._id, 'increase')}> + </b>
+            <b  onClick={() => handleQuantityChange(item._id, 'decrease')}> - </b>
           </div>
         ))}
       </form>
