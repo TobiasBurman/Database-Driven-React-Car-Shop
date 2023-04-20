@@ -10,7 +10,7 @@ let car = props.car
   return (
     <div>
               <img className='product-img' src={car.image} alt="car" width="350" height="250" />
-              <span className='top-product'><h3 className='product-title'>{car.title}</h3>     <Link to={`/pages/ProductPage?id=${car._id}`}><button className='product-btn'>Product</button></Link></span>
+              <h3 className='product-title'>{car.title}</h3>     <Link to={`/pages/ProductPage?id=${car._id}`}><button className='product-btn'>Product</button></Link>
 
               <h5>{car.description}</h5>
               <h5>Pris: {car.price} SEK</h5>
