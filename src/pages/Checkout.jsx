@@ -1,20 +1,21 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-
 
 const Checkout = () => {
-
   const [cartItems, setCartItems] = useOutletContext();
 
+  const handleQuantityChange = (id, action, e) => {
+    e.preventDefault()
+    const index = cartItems.findIndex((item) => item._id === id);
   
-
-  const handleQuantityChange = (id, action) => {
-    
-    const index = cartItems.findIndex(item => item._id === id);
-    console.log("hello world")
     if (index !== -1) {
-      const updatedCartItems = [...cartItems];
+      const updatedCartItems = cartItems.map((item) => {
+        if (!item.quantity) {
+          return { ...item, quantity: 1 };
+        }
+        return item;
+      });
+  
       if (action === 'increase') {
         updatedCartItems[index].quantity++;
       } else if (action === 'decrease') {
@@ -25,7 +26,6 @@ const Checkout = () => {
         }
       }
       setCartItems(updatedCartItems);
-
     }
   };
 
@@ -37,8 +37,9 @@ const Checkout = () => {
             <p>
               <img src={item.image} alt="car" width="100" height="60" />  {item.title} - {item.price}
             </p>
-            <b  onClick={() => handleQuantityChange(item._id, 'increase')}> + </b>
-            <b  onClick={() => handleQuantityChange(item._id, 'decrease')}> - </b>
+            <button onClick={() => handleQuantityChange(item._id, 'decrease',e)}>-</button>
+            <input type="text" value={item.quantity} onChange={() => {}} />
+            <button onClick={() => handleQuantityChange(item._id, 'increase',e)}>+</button>
           </div>
         ))}
       </form>
@@ -70,6 +71,9 @@ const Checkout = () => {
         <br />
         <button>Submit</button>
       </form>
+      <div>
+        <p>Total: {cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)}</p>
+      </div>
     </div>
   );
 };
