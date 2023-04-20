@@ -29,7 +29,6 @@ const Checkout = () => {
     }
   };
 
-  // group identical items and display the total quantity of each item
   const groupedItems = cartItems.reduce((acc, item) => {
     if (acc[item._id]) {
       acc[item._id].quantity++;
@@ -45,7 +44,8 @@ const Checkout = () => {
         {Object.values(groupedItems).map((item) => (
           <div key={item._id}>
             <p>
-              <img src={item.image} alt="car" width="100" height="60" />  {item.title} - {item.price} - ({item.quantity})
+              <img src={item.image} alt="car" width="100" height="60" /> 
+               {item.title} - {item.price} - ({item.quantity})
             </p>
             <button onClick={(e) => handleQuantityChange(item._id, 'decrease',e)}>-</button>
             <input type="text" value={item.quantity} onChange={() => {}} />
