@@ -37,9 +37,9 @@ const Checkout = () => {
             <p>
               <img src={item.image} alt="car" width="100" height="60" />  {item.title} - {item.price}
             </p>
-            <button onClick={() => handleQuantityChange(item._id, 'decrease',e)}>-</button>
+            <button onClick={(e) => handleQuantityChange(item._id, 'decrease',e)}>-</button>
             <input type="text" value={item.quantity} onChange={() => {}} />
-            <button onClick={() => handleQuantityChange(item._id, 'increase',e)}>+</button>
+            <button onClick={(e) => handleQuantityChange(item._id, 'increase',e)}>+</button>
           </div>
         ))}
       </form>
