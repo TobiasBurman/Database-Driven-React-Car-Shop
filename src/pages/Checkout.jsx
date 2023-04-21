@@ -109,7 +109,7 @@ const Checkout = () => {
           <input type="text" />
         </label>
         <br />
-        <button>Submit</button>
+        <button>Slutför köp</button>
       </form>
       <div>
         <p>Total: {cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)}</p>

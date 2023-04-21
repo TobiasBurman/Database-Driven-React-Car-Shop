@@ -70,6 +70,7 @@ const EditProduct = () => {
 
   return (
     <>
+    <Link to="/pages/admin/ManageProducts">Back to manage products</Link>
       <h1>Edit Product</h1>
       <form onSubmit={handleSubmit} className='productPage'>
         <label>
