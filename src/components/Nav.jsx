@@ -12,7 +12,10 @@ const Nav = ({ onCartClick, cartItems }) => {
       <br />
       <Link to="/pages/Products">Home</Link>
       <br />
-      <div className={styles.pointer} onClick={onCartClick}><ShoppingCartIcon />({cartItems.length})</div>
+      <div className={styles.cartContainer}>
+        <div className={styles.pointer} onClick={onCartClick}><ShoppingCartIcon sx={{ fontSize: 35 }} /></div><div className={styles.cartCount}>{cartItems.length}</div>
+      </div>
+      
     </div>
   );
 };

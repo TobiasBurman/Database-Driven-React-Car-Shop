@@ -8,3 +8,23 @@
 .pointer{
     cursor: pointer;
 }
+
+.cartContainer{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.cartCount{
+    font-size: small;
+    display: flex;
+    background-color: rgb(255, 88, 88);
+    color: white;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-left: -7px;
+    margin-top: -5px;
+}
