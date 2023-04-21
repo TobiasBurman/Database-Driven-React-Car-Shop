@@ -70,9 +70,8 @@ const EditProduct = () => {
 
   return (
     <>
-      <Link to="/pages/admin/ManageProducts">Admin</Link>
       <h1>Edit Product</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='productPage'>
         <label>
           Title:
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />

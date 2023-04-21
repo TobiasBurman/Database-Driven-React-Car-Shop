@@ -1,15 +1,16 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useOutletContext } from 'react-router-dom';
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useOutletContext();
+  const [cartItems2, setCartItems2] = useState([]);
 
   const handleQuantityChange = (id, action, e) => {
     e.preventDefault()
-    const index = cartItems.findIndex((item) => item._id === id);
+    const index = cartItems2.findIndex((item) => item._id === id);
   
     if (index !== -1) {
-      const updatedCartItems = cartItems.map((item) => {
+      const updatedCartItems = cartItems2.map((item) => {
         if (!item.quantity) {
           return { ...item, quantity: 1 };
         }
@@ -25,24 +26,9 @@ const Checkout = () => {
           updatedCartItems.splice(index, 1);
         }
       }
-      setCartItems(updatedCartItems);
+      setCartItems2(updatedCartItems);
     }
   };
-
-  useEffect( () => {
-    setCartItems(
-      cartItems.reduce((acc, item) => {
-          const object = acc.find((o) => o._id === item._id)
-          if (!object) {
-              acc.push({...item, quantity: 1});
-          } else {
-
-              object.quantity++;
-          }
-          return acc;
-      }, [])
-    )
-  }, [])
 
   // const groupedItems = cartItems.reduce((acc, item) => {
   //   if (acc[item._id]) {
@@ -53,27 +39,48 @@ const Checkout = () => {
   //   return acc;
   // }, {});
 
+  useEffect( () => {
+    setCartItems2(
+      cartItems.reduce((acc, item) => {
+          let object = acc.find((o) => o._id === item._id)
+          if (!object) {
+              acc.push({...item, quantity: 1});
+          } else {
+              object.quantity++;
+          }
+          return acc;
+      }, [])
+    )
+  }, [])
+
+  // useEffect( () => {
+  //   const cartItemsObject = cartItems.reduce((acc, item) => {
+  //     if (acc[item._id]) {
+  //       acc[item._id].quantity++;
+  //     } else {
+  //       acc[item._id] = { ...item, quantity: 1 };
+  //     }
+  //     return acc;
+  //   }, [])
+
+  //   setCartItems(
+  //     Object.entries(cartItemsObject)
+  //   )
+  // }, [])
+  console.log('checkout', cartItems)
   return (
     <div>
       <form className='checkOut'>
-        {cartItems.map((item) => (
-          <table key={item._id} className='checkOut'>
-            <tr></tr>
-            <th>Vara</th>
-            <th>Namn</th>
-            <th>Pris</th>
-            <th>Kvantitet</th>
-            <th>Ändra Kvantitet</th>
-            <tr>
-              <td><img src={item.image} alt="car" width="100" height="60" /> </td>
-             <td>{item.title}</td> <td>{item.price}</td> <td><input type="text" value={item.quantity} onChange={() => {}} className='checkOutNr'/></td> 
-             <td>
+        {cartItems2.map((item) => (  
+          <div key={item._id}>
+            <p>
+              <img src={item.image} alt="car" width="100" height="60" /> 
+               {item.title} - {item.price} - ({item.quantity})
+            </p>
             <button onClick={(e) => handleQuantityChange(item._id, 'decrease',e)}>-</button>
+            <input type="text" value={item.quantity} onChange={() => {}} />
             <button onClick={(e) => handleQuantityChange(item._id, 'increase',e)}>+</button>
-            </td>
-            </tr>
-       
-          </table>
+          </div>
         ))}
       </form>
       <form className='checkOutForm'>

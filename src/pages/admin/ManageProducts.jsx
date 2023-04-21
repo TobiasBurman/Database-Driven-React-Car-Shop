@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Nav from "../../components/Nav";
 import { Link } from "react-router-dom";
+
+
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
 
+
+  // anropar produkter
   const fetchProducts = async () => {
     try {
       const response = await fetch(
@@ -23,6 +26,8 @@ const ManageProducts = () => {
     fetchProducts();
   }, []);
 
+
+  // tar bort produkt från API'et med delete
   const handleDelete = async (productId) => {
     try {
       const response = await fetch(
