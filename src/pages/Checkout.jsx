@@ -57,15 +57,23 @@ const Checkout = () => {
     <div>
       <form className='checkOut'>
         {cartItems.map((item) => (
-          <div key={item._id}>
-            <p>
-              <img src={item.image} alt="car" width="100" height="60" /> 
-               {item.title} - {item.price} - ({item.quantity})
-            </p>
+          <table key={item._id} className='checkOut'>
+            <tr></tr>
+            <th>Vara</th>
+            <th>Namn</th>
+            <th>Pris</th>
+            <th>Kvantitet</th>
+            <th>Ändra Kvantitet</th>
+            <tr>
+              <td><img src={item.image} alt="car" width="100" height="60" /> </td>
+             <td>{item.title}</td> <td>{item.price}</td> <td><input type="text" value={item.quantity} onChange={() => {}} className='checkOutNr'/></td> 
+             <td>
             <button onClick={(e) => handleQuantityChange(item._id, 'decrease',e)}>-</button>
-            <input type="text" value={item.quantity} onChange={() => {}} />
             <button onClick={(e) => handleQuantityChange(item._id, 'increase',e)}>+</button>
-          </div>
+            </td>
+            </tr>
+       
+          </table>
         ))}
       </form>
       <form className='checkOutForm'>

@@ -146,3 +146,7 @@ color: black;
   background-color: rgb(133, 133, 133);
   color: white;
 }
+
+.checkOutNr {
+  width: 30px;
+}
