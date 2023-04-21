@@ -5,10 +5,11 @@ import { useOutletContext } from "react-router-dom";
 import Product from '../components/Product';
 const Products = () => {
 
-  const [cartItems, setCartItems] = useOutletContext();
-  const [carResponse, setCarResponse] = useState("")
-  const [error, setError] = useState('');
+  const [cartItems, setCartItems] = useOutletContext(); // hook för cart
+  const [carResponse, setCarResponse] = useState("")  // hook för bil API
+  const [error, setError] = useState('');   // hook för error
 
+  // anropar APIet
   const getCars = async () => {
     try {
   
@@ -25,11 +26,13 @@ const Products = () => {
     }
   };
   
+  
   useEffect(() => {
     getCars();
   }, []);
 
 
+  // uppdaterar carten vid köp
   const handleBuy = (car) => {
     setCartItems([...cartItems, car]);
   }

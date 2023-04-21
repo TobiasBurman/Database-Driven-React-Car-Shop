@@ -9,6 +9,8 @@ const CreateProduct = () => {
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
 
+
+  // skapar ny bilprodukt med POST
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -44,9 +46,8 @@ const CreateProduct = () => {
 
   return (
     <>
-    <Link to="/pages/admin/ManageProducts">Admin</Link>
       <h1>Create Product</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='productPage'>
         <label>
           Title:
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />

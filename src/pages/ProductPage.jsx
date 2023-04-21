@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react'
 import { useOutletContext } from "react-router-dom";
 
 const ProductPage = () => {
-  const [cartItems, setCartItems] = useOutletContext();
-  const [carResponse, setCarResponse] = useState("")
+  const [cartItems, setCartItems] = useOutletContext(); // hook för cart
+  const [carResponse, setCarResponse] = useState("") // hook för bil API
   let urlParams = new URLSearchParams(window.location.search)
 
+
+    // hämtar bil efter specifikt id
   const getCars = async () => {
     try {
       const response =  await fetch(
@@ -26,14 +28,15 @@ const ProductPage = () => {
     getCars();
   }, []);
   
+    // uppdaterar carten vid köp
   const handleBuy = (car) => {
     setCartItems([...cartItems, car]);
   }
 
   return (
-    <div>
+    <div className='productPage'>
 
-<div key={carResponse._id }>
+      <div key={carResponse._id } >
               <p><img src={carResponse.image} alt="carResponse" width="350" height="250" /></p>
               <b>{carResponse.title}</b>
               <i>{carResponse.description}</i>
