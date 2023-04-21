@@ -50,20 +50,21 @@ const ManageProducts = () => {
   return (
     <>
       <Link to="/pages/admin/CreateProduct">Create Product</Link>
+      
       {error && <p>{error}</p>}
       {products.length > 0 ? (
         <table className="adminTable">
           <thead>
             <tr>
-              <td>Titel</td>
-              <td>Beskrivning</td>
-              <td>Pris</td>
-              <td>Antal</td>
-              <td>Datum</td>
-              <td>Kategori</td>
-              <td>Bild</td>
-              <td></td>
-              <td></td>
+              <td><b>Titel</b> </td>
+              <td><b>Beskrivning</b></td>
+              <td><b>Pris</b></td>
+              <td><b>Antal</b></td>
+              <td><b>Datum</b></td>
+              <td><b>Kategori</b></td>
+              <td><b>Bild</b></td>
+              <td><b>Uppdatera</b></td>
+        
             </tr>
           </thead>
           <tbody>
@@ -80,12 +81,11 @@ const ManageProducts = () => {
                 <button onClick={() => window.location.href=`/pages/admin/UpdateProduct?id=${product._id}`}>
                     Uppdatera
                   </button>
-                </td>
-                <td>
                   <button className="btn-delete" onClick={() => handleDelete(product._id)}>
                     Radera
                   </button>
                 </td>
+            
               </tr>
             ))}
           </tbody>
