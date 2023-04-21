@@ -31,7 +31,7 @@ const ProductPage = () => {
   }
 
   return (
-    <div>Productsdsdsada
+    <div>Product
 
 <div key={carResponse._id }>
               <p><img src={carResponse.image} alt="carResponse" width="350" height="250" /></p>

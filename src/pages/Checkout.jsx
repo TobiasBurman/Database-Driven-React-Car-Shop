@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useOutletContext } from 'react-router-dom';
 
 const Checkout = () => {
@@ -29,19 +29,34 @@ const Checkout = () => {
     }
   };
 
-  const groupedItems = cartItems.reduce((acc, item) => {
-    if (acc[item._id]) {
-      acc[item._id].quantity++;
-    } else {
-      acc[item._id] = { ...item, quantity: 1 };
-    }
-    return acc;
-  }, {});
+  useEffect( () => {
+    setCartItems(
+      cartItems.reduce((acc, item) => {
+          const object = acc.find((o) => o._id === item._id)
+          if (!object) {
+              acc.push({...item, quantity: 1});
+          } else {
+
+              object.quantity++;
+          }
+          return acc;
+      }, [])
+    )
+  }, [])
+
+  // const groupedItems = cartItems.reduce((acc, item) => {
+  //   if (acc[item._id]) {
+  //     acc[item._id].quantity++;
+  //   } else {
+  //     acc[item._id] = { ...item, quantity: 1 };
+  //   }
+  //   return acc;
+  // }, {});
 
   return (
     <div>
       <form className='checkOut'>
-        {Object.values(groupedItems).map((item) => (
+        {cartItems.map((item) => (
           <div key={item._id}>
             <p>
               <img src={item.image} alt="car" width="100" height="60" /> 
@@ -82,7 +97,7 @@ const Checkout = () => {
         <button>Submit</button>
       </form>
       <div>
-        <p>Total: {Object.values(groupedItems).reduce((total, item) => total + (item.price * item.quantity), 0)}</p>
+        <p>Total: {cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)}</p>
       </div>
     </div>
   );
