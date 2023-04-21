@@ -42,12 +42,10 @@ const Products = () => {
           <div className ="product"key={car._id }>
               <Product car = {car}/>
               <br />
-              {/* <Link to={`/pages/ProductPage?id=${car._id}`}><button className='product-btn'>Product</button></Link> */}
-             
               <button onClick={() => handleBuy(car)}>Köp</button>
               </div>
           ))
-        : "Movie List is empty"}
+        : "List is empty"}
     </div>
   );
 };

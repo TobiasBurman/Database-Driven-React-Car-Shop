@@ -3,8 +3,6 @@ import styles from './Cart.module.css'
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
-
-
 const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
   const cartItemCount = cartItems.length;
   const groupedItems = cartItems.reduce((acc, item) => {
@@ -24,8 +22,6 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
     closed: { opacity: 0, x: "-100%" },
   }
   
-  
-
   return (
     <>
       <motion.ul className={styles.cartContainer}
@@ -33,7 +29,6 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
           y: 10,
         }}
         variants={variants}
-        
       >
         {cartItemCount > 0 ? (
           Object.values(groupedItems).map((item) => (
@@ -49,8 +44,8 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
              )}
              <p className={styles.cartTotal}>Total: {totalAmount}SEK </p>
                 
-                  <button className={styles.cartTotal} onClick={() => handleRemoveAll()}>Remove All</button>
-                  <Link className={styles.cartList} to="/pages/Checkout">Checkout</Link>
+            <button className={styles.cartTotal} onClick={() => handleRemoveAll()}>Remove All</button>
+            <Link className={styles.cartList} to="/pages/Checkout">Checkout</Link>
                 
       </motion.ul>
     </> 

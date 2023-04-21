@@ -31,15 +31,15 @@ const ProductPage = () => {
   }
 
   return (
-    <div>Product
+    <div>
 
 <div key={carResponse._id }>
               <p><img src={carResponse.image} alt="carResponse" width="350" height="250" /></p>
-              <p>{carResponse.title}</p>
-              <p>{carResponse.description}</p>
-              <p>{carResponse.price}</p>
-              <p>{carResponse.date}</p>
-              <p>{carResponse.category}</p>
+              <b>{carResponse.title}</b>
+              <i>{carResponse.description}</i>
+              <p>Pris: {carResponse.price}</p>
+              <p>Lagersaldo: {carResponse.stock}</p>
+              <p>Kategori: {carResponse.category}</p>
               <br />
               <button onClick={() => handleBuy(carResponse)}>Köp</button>
               </div>
