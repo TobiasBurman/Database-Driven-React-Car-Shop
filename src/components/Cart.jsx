@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
   const cartItemCount = cartItems.length;
   const groupedItems = cartItems.reduce((acc, item) => {
-    if (acc[item._id]) {
-      acc[item._id].count++;
+    if (acc[item.imdbID]) {
+      acc[item.imdbID].count++;
     } else {
-      acc[item._id] = { ...item, count: 1 };
+      acc[item.imdbID] = { ...item, count: 1 };
     }
     return acc;
   }, {});
@@ -33,9 +33,9 @@ const Cart = ({ cartItems, handleRemoveItem, handleRemoveAll }) => {
         {cartItemCount > 0 ? (
           Object.values(groupedItems).map((item) => (
             
-              <motion.li className={styles.cartList} key={item._id} animate={{y: 10}}>
-                <img src={item.image} alt="car" width="150" height="100" /> {item.title} {item.price} - ({item.count})
-                <button onClick={() => handleRemoveItem(item._id)}>Remove</button>
+              <motion.li className={styles.cartList} key={item.imdbID} animate={{y: 10}}>
+                <img src={item.Poster} alt="car" width="150" height="100" /> {item.Title} 100 SEK - ({item.count})
+                <button onClick={() => handleRemoveItem(item.imdbID)}>Remove</button>
               </motion.li>
            
            ))

@@ -5,21 +5,21 @@ import { useOutletContext } from "react-router-dom";
 import Product from '../components/Product';
 const Products = () => {
 
-  const [cartItems, setCartItems] = useOutletContext(); // hook för cart
-  const [carResponse, setCarResponse] = useState("")  // hook för bil API
+  const [gameItems, setgameItems] = useOutletContext(); // hook för game
+  const [gameResponse, setGameResponse] = useState("")  // hook för bil API
   const [error, setError] = useState('');   // hook för error
 
   // anropar APIet
-  const getCars = async () => {
+  const getGames = async () => {
     try {
   
       const response =  await fetch(
-        `https://product-api-production-0e9a.up.railway.app/products`
+        `https://www.omdbapi.com/?i=tt3896198&apikey=21adb06f&s=batman&type=game`
       );
-     const carApi= await response.json();
+     const gameApi= await response.json();
      
-      setCarResponse(carApi)
-      
+      setGameResponse(gameApi.Search)
+      console.log(gameApi)
     } catch (error) {
       console.log(error);
       setError("An error occurred while fetching the data");
@@ -28,24 +28,24 @@ const Products = () => {
   
   
   useEffect(() => {
-    getCars();
+    getGames();
   }, []);
 
 
-  // uppdaterar carten vid köp
-  const handleBuy = (car) => {
-    setCartItems([...cartItems, car]);
+  // uppdaterar gameen vid köp
+  const handleBuy = (game) => {
+    setgameItems([...gameItems, game]);
   }
  
    
   return (
     <div className='product-container'>
-      {carResponse.length
-        ? carResponse.map((car) => (
-          <div className ="product"key={car._id }>
-              <Product car = {car}/>
+      {gameResponse.length
+        ? gameResponse.map((game) => (
+          <div className ="product"key={game.imdbID }>
+              <Product game = {game}/>
               <br />
-              <button onClick={() => handleBuy(car)}>Köp</button>
+              <button onClick={() => handleBuy(game)}>Köp</button>
               </div>
           ))
         : "List is empty"}

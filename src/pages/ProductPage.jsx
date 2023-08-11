@@ -3,21 +3,21 @@ import { useState, useEffect } from 'react'
 import { useOutletContext } from "react-router-dom";
 
 const ProductPage = () => {
-  const [cartItems, setCartItems] = useOutletContext(); // hook för cart
-  const [carResponse, setCarResponse] = useState("") // hook för bil API
+  const [gameItems, setGametItems] = useOutletContext(); // hook för cart
+  const [gameResponse, setGameResponse] = useState("") // hook för bil API
   let urlParams = new URLSearchParams(window.location.search)
 
 
     // hämtar bil efter specifikt id
-  const getCars = async () => {
+  const getGames = async () => {
     try {
       const response =  await fetch(
-        `https://product-api-production-0e9a.up.railway.app/products/${urlParams.get('id')}`
+        `https://product-api-production-0e9a.up.railway.app/products/${urlParams.get('imdbID')}`
       );
-     const carApi= await response.json();
+     const gameApi= await response.json();
      
-      setCarResponse(carApi)
-      console.log(carResponse)
+      setGameResponse(gameApi)
+      console.log(gameResponse)
     } catch (error) {
       console.log(error);
       setError("An error occurred while fetching the data");
@@ -25,26 +25,25 @@ const ProductPage = () => {
   };
   
   useEffect(() => {
-    getCars();
+    getGames();
   }, []);
   
     // uppdaterar carten vid köp
-  const handleBuy = (car) => {
-    setCartItems([...cartItems, car]);
+  const handleBuy = (game) => {
+    setCartItems([...cartItems, game]);
   }
 
   return (
     <div className='productPage'>
 
-      <div key={carResponse._id } >
-              <p><img src={carResponse.image} alt="carResponse" width="350" height="250" /></p>
-              <b>{carResponse.title}</b>
-              <i>{carResponse.description}</i>
-              <p>Pris: {carResponse.price}</p>
-              <p>Lagersaldo: {carResponse.stock}</p>
-              <p>Kategori: {carResponse.category}</p>
+      <div key={gameResponse.imdbID } >
+              <p><img src={gameResponse.Poster} alt="gameResponse" width="350" height="250" /></p>
+              <b>{gameResponse.Title}</b>
+              <i>{gameResponse.Year}</i>
+              <p>Pris: 100kr </p>
+              
               <br />
-              <button onClick={() => handleBuy(carResponse)}>Köp</button>
+              <button onClick={() => handleBuy(gameResponse)}>Köp</button>
               </div>
     </div>
   )
