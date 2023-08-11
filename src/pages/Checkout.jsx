@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { useOutletContext } from 'react-router-dom';
 
 const Checkout = () => {
-  const [gametItems, setGameItems] = useOutletContext();
-  const [gametItems2, setGametItems2] = useState([]);
+  const [cartItems, setCartItems] = useOutletContext();
+  const [cartItems2, setCartItems2] = useState([]);
 
   const handleQuantityChange = (id, action, e) => {
     e.preventDefault()
