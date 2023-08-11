@@ -12,11 +12,13 @@ const ProductPage = () => {
   const getGames = async () => {
     try {
       const response =  await fetch(
-        `https://product-api-production-0e9a.up.railway.app/products/${urlParams.get('imdbID')}`
+        `https://www.omdbapi.com/?apikey=b726c748&i=${urlParams.get('imdbID')}`
       );
      const gameApi= await response.json();
      
       setGameResponse(gameApi)
+      console.log(urlParams.get('imdbID'))
+      console.log('enskild')
       console.log(gameResponse)
     } catch (error) {
       console.log(error);
