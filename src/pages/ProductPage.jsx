@@ -41,7 +41,15 @@ const ProductPage = () => {
       <div key={gameResponse.imdbID } >
               <p><img src={gameResponse.Poster} alt="gameResponse" width="350" height="250" /></p>
               <b>{gameResponse.Title}</b>
+              <br/>
               <i>{gameResponse.Year}</i>
+              <br/>
+              <br/>
+              <i> <b>Actors: </b> {gameResponse.Actors}</i>
+              <br/>
+              <i> <b>Writers: </b>{gameResponse.Writer}</i>
+              <br/>
+              <i> <b>Language: </b>{gameResponse.Language}</i>
               <p>Pris: 100kr </p>
               
               <br />
